@@ -1,0 +1,305 @@
+:root{    
+/* Paleta de colores de https://colorhunt.co/palette/52006acd113bff7600ffa900 */
+    --color1: #231E23;
+    --color1-opacity: #231e2380;
+    --color2: #39A6A3;
+    --color3: #DEEEEA;   
+    --color4: #213647;
+    --color4-opacity: #21364780;
+    --color5: rgb(0, 0, 0);
+    --color6: #91114d;
+    --color6-hover: #c55187;
+    --color0: #000;
+    --colorf: #fff;
+    --colorf-opacity: #ffffff80;     
+}
+
+/* ASPECTOS GENERALES// RESETEOS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+}
+
+h1{
+    font-size: clamp(40px, 7vw, 70px);
+}
+
+h2{
+    font-size: clamp(30px, 6vw, 50px);
+}
+
+h3{
+    font-size: clamp(23px, 7vw, 36px);
+}
+
+h4{
+    font-weight: 300;
+    font-size: clamp(13px, 4vw, 26px);
+}
+
+img{
+    max-width: 100%;
+     ;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: #231E23;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23596874' fill-opacity='0.65'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ESPECIFIDADES */
+
+h1{
+    letter-spacing: .8rem;
+    text-align: center;
+    display: block;
+    color: var(--colorf);
+    padding: 15px;
+}
+
+.box-title-day{
+    text-align: center;
+    display: block;
+    padding: min(1%, 20px) 0;
+    color: var(--color4);
+}
+
+.box-title-day > h2 {
+    display: inline;
+    background: var(--color6);
+    color: var(--color3);
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+h3,h4,h5{
+    color: var(--color3);
+}
+
+.day-box{
+    width: 100%;
+    background: var(--color2);
+    padding: 20px 0;
+    margin: 0 0 5% 0;
+}
+
+.day-box-content{
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+}
+
+.day-img-box{
+    margin: 10px 0 10px 10%;
+    height: 100%;
+}
+
+.day-text-box{
+    margin: 10px 10% 20px 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.galery{
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px,250px));
+    gap: 10px;
+    grid-template-areas: "main  main   main"
+                         "main  main   main"
+                         "code  code   code"
+                         "time  others others";
+   
+}
+
+.main{
+    grid-area: main;
+}
+.code{
+    grid-area: code;
+}
+.time{
+    grid-area: time;
+}
+.others{
+    grid-area: others;
+}
+
+.day-text, .day-text > h3{
+    margin-bottom: min(5%, 20px) ;
+}
+
+.box-text{
+    background-color: var(--color4);
+    border-radius: 15px;
+    padding: 25px;
+        
+}
+
+.box-text > .button {
+    margin: auto;
+    width: 40%; 
+}
+
+.box-text > .button > a > h4 {
+    padding: 2px;
+    background-color: var(--color6);
+    text-align: center;
+    border-radius: 15px;
+}
+
+
+
+/* CREACIÓN Y DISEÑO DEL MENU HAMBURGUESA */
+
+.come-back, .menu{
+    background-color: var(--color6);
+    position: fixed;
+    bottom: 4%;
+    right: 4%;
+    border: none;
+    border-radius: 50%;
+    
+}
+
+.come-back > a > i, .menu > i {
+    color: var(--colorf);
+    padding: 5px;
+    font-size: clamp(40px, 7vw, 60px);
+}
+
+.menu{
+    bottom: 15%;
+}
+
+.come-back:hover, .menu:hover{
+    background-color: var(--color6-hover);
+    transform: scale(1.1);
+    transition: all .2s;
+}
+
+/* Menú */
+
+.menu.is-active{
+    display: none;
+    overflow: none;
+}
+
+.panel_menu{
+    transform: translate(-100%, 0);
+    position: fixed;
+    background-color: var(--color1-opacity);
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    overflow-y: scroll;
+    transition: transform .8s ease;
+    
+}
+
+.panel_menu.is-active{
+    transform: translate(0,0);
+}
+
+.nav-menu{
+    padding: 10px;
+    padding-bottom: 20px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px 0;
+    justify-items: center;
+}
+
+.panel_menu > h2 {
+    margin-top: 3% ;
+    margin-bottom: 3% ;
+    text-align: center;
+    background: var(--color4-opacity);
+    color: var(--colorf-opacity);
+}
+
+.nav-menu > a {
+    background-color: var(--color4-opacity);
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: clamp(13px, 6vw, 27px);
+    text-align: center;
+    padding: 5px 0;
+    width: 80%;
+    color: var(--color6);    
+}
+
+.nav-menu > a > h3 {
+    text-decoration: none;
+    font-size: clamp(10px, 5vw, 28px);
+    text-align: center;
+    color: var(--colorf-opacity);
+    font-weight: 600;    
+}
+
+.nav-menu > a:hover{
+    background-color: var(--color4);
+    
+}
+.nav-menu > a > h3:hover{
+    color: var(--colorf);
+}
+
+@media screen and (max-width: 880px){
+
+    .galery{
+        grid-template-columns: repeat(1, minmax(100px,300px));
+        grid-template-areas: "main"
+                             "code"
+                             "time"
+                             "others";       
+    }
+
+    .box-text{
+        padding: 8px;
+            
+    }
+
+    .nav-menu{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px 0;
+        justify-items: center;
+    }
+    .day-img-box{
+        padding-top: 20px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 650px){
+
+    .panel_menu{    
+        position: fixed;
+        background-color: var(--color1);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        opacity: 1;
+    }
+    .day-box-content{
+        display: grid;
+        grid-template-columns: 100vw;
+    }
+    .day-text-box{
+        margin: 10px 7%;
+        display: flex;
+        flex-direction: column;
+    }
+}
